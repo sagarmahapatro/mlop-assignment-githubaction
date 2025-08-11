@@ -2,14 +2,13 @@
 Assignment 1
 “Build, Track, Package, Deploy and Monitor an ML Model using MLOps Best Practices”
 group 32
-|---------------------------------------------------------------|
-| Name                 | BITS ID                                |
+| Name                 | BITS ID                               |
 |----------------------|----------------------------------------|
 | ATIK JAIN            | 2023ac05724@wilp.bits-pilani.ac.in     |
 | KURUMILLA SRILEKHHA  | 2022ac05127@wilp.bits-pilani.ac.in     |
 | MITHU DEB            | 2023ac05336@wilp.bits-pilani.ac.in     |
 | SAGAR MAHAPATRO      | 2023ac05796@wilp.bits-pilani.ac.in     |
-|---------------------------------------------------------------|
+
 
 Project Overview: mlop-assignment-githubaction by 
 This repository is a well-organized MLOps project that implements a complete pipeline for building, deploying, and monitoring a machine learning model, with a focus on automation via GitHub Actions.
@@ -38,7 +37,6 @@ Monitoring & Logging: Integration of Prometheus (and potentially Grafana) for co
 
 Orchestration with Docker Compose: Easily run all services locally or in deployment environments using a single docker-compose.yml.
 
-Suggested Summary for Your README or Documentation
 Repository: mlop-assignment-githubaction
 Goal: Full-stack MLOps pipeline using California Housing dataset—covering model training, experiment tracking, deployment, and monitoring with industry best practices.
 
