@@ -6,6 +6,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
+import inspect
 import joblib
 
 # Paths
@@ -38,7 +39,13 @@ for name, model in models.items():
     with mlflow.start_run(run_name=name):
         model.fit(X_train, y_train)
         preds = model.predict(X_test)
-        rmse = mean_squared_error(y_test, preds, squared=False)
+        
+        if "squared" in inspect.signature(mean_squared_error).parameters:
+            rmse = mean_squared_error(y_test, preds, squared=False)
+        else:
+          from math import sqrt
+          rmse = sqrt(mean_squared_error(y_test, preds))
+        
 
         mlflow.log_param("model_name", name)
         mlflow.log_metric("rmse", rmse)
