@@ -1,0 +1,52 @@
+name: Process and Push Data with DVC
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  process-data:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
+    - name: Install dependencies
+      run: |
+        pip install pandas dvc
+
+    - name: Load data
+      run: |
+        python src/load_data.py    
+
+    - name: Process data
+      run: |
+        python src/process_data.py
+
+    - name: Track processed data with DVC
+      run: |
+        dvc add data/processed/california_housing_processed.csv
+        git add data/processed/california_housing_processed.csv.dvc .gitignore
+        git commit -m "Track processed data file" || echo "No changes"
+
+    - name: Push data to dvcstore folder
+      run: |
+        dvc push
+        git add dvcstore
+        git commit -m "Update DVC store" || echo "No changes"
+
+    - name: Push changes to repo
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git push
