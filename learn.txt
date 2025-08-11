@@ -30,12 +30,19 @@ dvc remote add -d mygdrive gdrive://1ijxft2SRfsgejAztruCTMpdTHibDdcoy
 
 dvc remote modify mygdrive gdrive_service_account_json_file_path C:\sagar\bits-pilani\semister-2\lectures\MLOps_S2-24_AIMLCZG523\assignment\dvc-mlop-assignment-6cb74fa4e46b.json
 
+dvc remote modify mygdrive gdrive_use_service_account true
 
 dvc add data/raw/california_housing.csv
 git add data/raw/california_housing.csv.dvc .gitignore
 git commit -m "Track dataset with DVC"
 
-# Push the actual data to Google Drive
+# Inside your Git repo
+mkdir dvcstore
+
+# Add the folder as a DVC remote
+dvc remote add -d localremote ./dvcstore
+
+# Push data
 dvc push
 
 =============
