@@ -1,0 +1,8 @@
+[core]
+    remote = localremote
+['remote "mygdrive"']
+    url = gdrive://1ijxft2SRfsgejAztruCTMpdTHibDdcoy
+    gdrive_service_account_json_file_path = C:/sagar/bits-pilani/semister-2/lectures/MLOps_S2-24_AIMLCZG523/assignment/dvc-mlop-assignment-6cb74fa4e46b.json
+    gdrive_use_service_account = true
+['remote "localremote"']
+    url = ../dvcstore

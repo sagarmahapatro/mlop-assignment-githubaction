@@ -1,0 +1,43 @@
+# Create a virtual environment called 'venv'
+python -m venv venv
+
+venv\Scripts\activate.bat
+
+3. Select the Virtual Environment in VS Code
+Press Ctrl+Shift+P (Windows/Linux) or Cmd+Shift+P (Mac) to open the Command Palette.
+
+Search for "Python: Select Interpreter" and click it.
+
+You’ll see a list of interpreters — pick the one pointing to your venv folder.
+Example:
+
+bash
+Copy
+Edit
+./.venv/bin/python
+or
+./venv/Scripts/python.exe
+
+where python
+
+pip install -r src/requirements.txt
+
+Ragas123!@#
+
+https://drive.google.com/drive/folders/1ijxft2SRfsgejAztruCTMpdTHibDdcoy
+
+dvc remote add -d mygdrive gdrive://1ijxft2SRfsgejAztruCTMpdTHibDdcoy
+
+dvc remote modify mygdrive gdrive_service_account_json_file_path C:\sagar\bits-pilani\semister-2\lectures\MLOps_S2-24_AIMLCZG523\assignment\dvc-mlop-assignment-6cb74fa4e46b.json
+
+
+dvc add data/raw/california_housing.csv
+git add data/raw/california_housing.csv.dvc .gitignore
+git commit -m "Track dataset with DVC"
+
+# Push the actual data to Google Drive
+dvc push
+
+=============
+python src/load_data.py
+python src/preprocess_data.py
