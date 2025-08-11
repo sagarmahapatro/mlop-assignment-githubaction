@@ -1,10 +1,11 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
 import joblib
 import numpy as np
 import logging
 import os
 from log_to_db import log_prediction
+from prometheus_fastapi_instrumentator import Instrumentator
+from schemas import HousingInput
 
 log_dir = "src/logs"
 os.makedirs(log_dir, exist_ok=True)
@@ -20,8 +21,8 @@ model = joblib.load("models/best_model.pkl")
 
 app = FastAPI(title="California Housing Prediction API")
 
-class HousingInput(BaseModel):
-    features: list
+Instrumentator().instrument(app).expose(app, endpoint="/metrics")
+
 
 @app.get("/")
 def root():

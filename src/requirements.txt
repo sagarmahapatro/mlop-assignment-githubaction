@@ -6,3 +6,4 @@ mlflow
 fastapi
 uvicorn
 dvc
+prometheus_fastapi_instrumentator
