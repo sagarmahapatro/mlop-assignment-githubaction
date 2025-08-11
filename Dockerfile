@@ -17,6 +17,7 @@ RUN pip install --upgrade pip && \
 # Copy source code and model
 COPY src/ ./src/
 COPY models/ ./models/
+COPY models/ ./src/models/
 
 # Set working dir to src
 WORKDIR /app/src
