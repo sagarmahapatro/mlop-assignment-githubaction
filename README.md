@@ -37,7 +37,6 @@ Monitoring & Logging: Integration of Prometheus (and potentially Grafana) for co
 
 Orchestration with Docker Compose: Easily run all services locally or in deployment environments using a single docker-compose.yml.
 
-Suggested Summary for Your README or Documentation
 Repository: mlop-assignment-githubaction
 Goal: Full-stack MLOps pipeline using California Housing dataset—covering model training, experiment tracking, deployment, and monitoring with industry best practices.
 
