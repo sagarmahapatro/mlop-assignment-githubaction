@@ -12,7 +12,7 @@ housing = fetch_california_housing(as_frame=True)
 df = pd.concat([housing.data, housing.target.rename("MedHouseVal")], axis=1)
 
 save_path = os.path.join(".", "data", "raw", "california_housing.csv")
-print("Saving to:", os.path.abspath(save_path))
+print("Saving to:", os.path.abspath(save_path))  
 
 # Save to CSV
 df.to_csv(save_path , index=False)
