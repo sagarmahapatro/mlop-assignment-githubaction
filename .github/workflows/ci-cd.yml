@@ -55,3 +55,17 @@ jobs:
         git config user.name "sagarmahapatro"
         git config user.email "sagarmahapatro@gmail.com"
         git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+    
+    - name: Train models with MLflow
+      run: |
+        python src/model_training.py
+
+    - name: Track best model with DVC
+      run: |
+        dvc add models/best_model.pkl
+        git add models/best_model.pkl.dvc
+        git commit -m "Track best model" || echo "No changes"
+
+    - name: Push model to DVC remote
+      run: |
+        dvc push         

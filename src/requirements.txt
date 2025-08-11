@@ -1,2 +1,8 @@
-scikit-learn
 pandas
+numpy
+scikit-learn
+joblib
+mlflow
+fastapi
+uvicorn
+dvc
