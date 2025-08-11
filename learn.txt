@@ -51,4 +51,11 @@ python src/load_data.py
 python src/preprocess_data.py
 
 
-docker login -u sagarmahapatro
+
+
+
+docker push sagarmahapatro/mlops-california-housing:tagname
+
+docker pull sagarmahapatro/mlops-california-housing:latest
+
+docker run -d --name mlops-california-housing -p 8000:8000 sagarmahapatro/mlops-california-housing:latest
