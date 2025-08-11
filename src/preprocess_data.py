@@ -15,3 +15,5 @@ os.makedirs("data/processed", exist_ok=True)
 df.to_csv("data/processed/california_housing_processed.csv", index=False)
 
 print("✅ Preprocessing complete. Processed file saved.")
+
+
