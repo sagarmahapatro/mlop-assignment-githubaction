@@ -33,7 +33,7 @@ jobs:
 
     - name: Process data
       run: |
-        python src/process_data.py
+        python src/preprocess_data.py
 
     - name: Track processed data with DVC
       run: |
