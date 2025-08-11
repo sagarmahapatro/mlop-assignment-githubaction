@@ -23,6 +23,7 @@ where python
 pip install -r src/requirements.txt
 
 Ragas123!@#
+Docker123!@#
 
 https://drive.google.com/drive/folders/1ijxft2SRfsgejAztruCTMpdTHibDdcoy
 
@@ -48,3 +49,6 @@ dvc push
 =============
 python src/load_data.py
 python src/preprocess_data.py
+
+
+docker login -u sagarmahapatro
