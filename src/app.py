@@ -2,6 +2,13 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 import numpy as np
+import logging
+
+logging.basicConfig(
+    filename="logs/predictions.log",
+    format="%(asctime)s - %(message)s",
+    level=logging.INFO
+)
 
 # Load trained model
 model = joblib.load("models/best_model.pkl")
@@ -17,6 +24,8 @@ def root():
 
 @app.post("/predict")
 def predict(data: HousingInput):
+    input_dict = data.dict()
     features = np.array(data.features).reshape(1, -1)
     prediction = model.predict(features)
+    logging.info(f"Input: {input_dict}, Prediction: {prediction.tolist()}")
     return {"prediction": prediction.tolist()}
