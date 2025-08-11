@@ -9,7 +9,7 @@ log_dir = "src/logs"
 os.makedirs(log_dir, exist_ok=True)
 
 logging.basicConfig(
-    filename="logs/predictions.log",
+    filename=os.path.join(log_dir, "predictions.log"),
     format="%(asctime)s - %(message)s",
     level=logging.INFO
 )
