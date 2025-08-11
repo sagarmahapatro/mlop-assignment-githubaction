@@ -4,6 +4,7 @@ import joblib
 import numpy as np
 import logging
 import os
+from log_to_db import log_prediction
 
 log_dir = "src/logs"
 os.makedirs(log_dir, exist_ok=True)
@@ -32,4 +33,5 @@ def predict(data: HousingInput):
     features = np.array(data.features).reshape(1, -1)
     prediction = model.predict(features)
     logging.info(f"Input: {input_dict}, Prediction: {prediction.tolist()}")
+    log_prediction(input_dict, prediction.tolist())
     return {"prediction": prediction.tolist()}
