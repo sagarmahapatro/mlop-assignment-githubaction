@@ -3,6 +3,10 @@ from pydantic import BaseModel
 import joblib
 import numpy as np
 import logging
+import os
+
+log_dir = "src/logs"
+os.makedirs(log_dir, exist_ok=True)
 
 logging.basicConfig(
     filename="logs/predictions.log",
