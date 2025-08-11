@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   process-data:
     runs-on: ubuntu-latest
@@ -51,4 +54,4 @@ jobs:
       run: |
         git config user.name "sagarmahapatro"
         git config user.email "sagarmahapatro@gmail.com"
-        git push
+        git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
